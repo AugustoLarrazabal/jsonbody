@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Read JSON') {
+            steps {
+                script {
+                    // Leer el JSON desde el cuerpo de la solicitud POST
+                    def json = readJSON text: params.payload
+
+                    // Acceder a cada dato del JSON
+                    def dato1 = json.dato1
+                    def dato2 = json.dato2
+                    def dato3 = json.dato3
+                    def dato4 = json.dato4
+                    def dato5 = json.dato5
+                    def dato6 = json.dato6
+
+                    // Imprimir los datos para verificar
+                    echo "dato1: ${dato1}"
+                    echo "dato2: ${dato2}"
+                    echo "dato3: ${dato3}"
+                    echo "dato4: ${dato4}"
+                    echo "dato5: ${dato5}"
+                    echo "dato6: ${dato6}"
+                }
+            }
+        }
+    }
+}
